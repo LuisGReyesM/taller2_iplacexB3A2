@@ -29,7 +29,7 @@ jobs:
 
       # 4️⃣ Ejecutar pruebas BDD y generar reporte HTML
       - name: Run BDD Tests
-        run: mvn test -Dcucumber.options="--plugin html:target/cucumber-report.html"
+        run: mvn test
 
       # 5️⃣ Subir reporte HTML como artifact
       - name: Upload Cucumber Report
