@@ -1,15 +1,14 @@
 package com.bdd;
 
-import io.cucumber.junit.Cucumber;
-import io.cucumber.junit.CucumberOptions;
-import org.junit.runner.RunWith;
+import io.cucumber.junit.platform.engine.Constants;
+import org.junit.platform.suite.api.ConfigurationParameter;
+import org.junit.platform.suite.api.IncludeEngines;
+import org.junit.platform.suite.api.Suite;
 
-@RunWith(Cucumber.class)
-@CucumberOptions(
-        features = "src/test/resources/features",
-        glue = {"com.bdd.steps", "com.bdd.config"},
-        plugin = { "pretty", "html:target/cucumber-reports.html" }
-)
-
+@Suite
+@IncludeEngines("cucumber")
+@ConfigurationParameter(key = Constants.FEATURES_PROPERTY_NAME, value = "classpath:features")
+@ConfigurationParameter(key = Constants.GLUE_PROPERTY_NAME, value = "com.bdd.steps,com.bdd.config")
 public class RunCucumberTest {
+    // Esta clase es el punto de entrada para ejecutar tus pruebas BDD.
 }

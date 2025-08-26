@@ -24,19 +24,15 @@ jobs:
           distribution: temurin
 
       # 3️⃣ Construir el proyecto con Maven
-      - name: Run BDD Tests
-        run: .\mvnw.cmd clean test
-
-
       # 4️⃣ Ejecutar pruebas BDD y generar reporte HTML
-      - name: Run BDD Tests
-        run: mvn test
+      - name: Run Tests and Generate Reports
+        run: .\mvnw.cmd clean verify
 
       # 5️⃣ Subir reporte HTML como artifacts
       - name: Upload Cucumber Report
         uses: actions/upload-artifact@v4
         with:
           name: cucumber-report
-          path: target/cucumber-reports.html
+          path: target/cucumber-report.html
 
 
