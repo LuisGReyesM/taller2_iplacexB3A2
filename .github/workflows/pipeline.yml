@@ -24,8 +24,9 @@ jobs:
           distribution: temurin
 
       # 3️⃣ Construir el proyecto con Maven
-      - name: Build with Maven
-        run: mvn clean install
+      - name: Run BDD Tests
+        run: .\mvnw.cmd clean test
+
 
       # 4️⃣ Ejecutar pruebas BDD y generar reporte HTML
       - name: Run BDD Tests
